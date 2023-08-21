@@ -2,7 +2,7 @@
 
 A working Variational Autoencoder in (jitted) JAX/FLAX for learning how to generate MNIST digits.
 
-Official website: (to be done)[https://giorgiofranceschelli.github.io/dijit].
+Official website: [to be done](https://giorgiofranceschelli.github.io/dijit).
 
 ### Instructions
 
