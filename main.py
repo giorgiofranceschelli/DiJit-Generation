@@ -36,6 +36,7 @@ def main_training(args):
     num_of_batches = ds_info.splits['train'].num_examples//batch_size
     epochs = int(args.EPOCHS)
     vae_trainer = VAEManager(z_dim=int(args.Z_DIM), beta=float(args.BETA), image_dim=(28, 28, 1), seed=int(args.SEED))
+    print("Training starting ...")
     for i in range(epochs):
         rec_loss_epoch = np.zeros((), np.float32)
         reg_loss_epoch = np.zeros((), np.float32)
