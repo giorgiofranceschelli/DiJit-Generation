@@ -1,9 +1,22 @@
 import flax
+import argparse
+import tensorflow as tf
+import tensorflow_datasets as tfds
 
-from nets import *
+from model import VAEManager
 from utils import *
 
 flax.config.update('flax_use_orbax_checkpointing', True)
+
+def define_config():
+    config = {}
+    config['BATCH_SIZE'] = 64
+    config['EPOCHS'] = 100
+    config['Z_DIM'] = 2
+    config['BETA'] = 0.001
+    config['LR'] = 0.0001
+    config['SEED'] = 1
+    return config
 
 
 def main_training(args):
@@ -39,11 +52,7 @@ def main_training(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Train a VAE on MNIST dataset.')
-    parser.add_argument('--EPOCHS', default=200, help='number of training epochs')
-    parser.add_argument('--BATCH-SIZE', default=32, help='batch size')
-    parser.add_argument('--Z-DIM', default=2, help='size of latent vectors')
-    parser.add_argument('--BETA', default=0.001, help='scaling factor for regularization loss in VAE')
-    parser.add_argument('--LR', default=0.0001, help='learning rate for vae')
-    parser.add_argument('--SEED', default=1, help='random seed initialization')
+    for key, value in define_config().items():
+        parser.add_argument(f'--{key}', type=type(value), default=value)
     args = parser.parse_args()
     main_training(args)

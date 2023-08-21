@@ -1,7 +1,7 @@
 import jax
 import numpy as np
 import random
-import torch
+import tensorflow as tf
 
 
 class KeyManager:
@@ -52,6 +52,6 @@ def set_seed(seed):
     """
     random.seed(seed)
     np.random.seed(seed)
-    torch.manual_seed(seed)
+    tf.random.set_seed(seed)
 
 
