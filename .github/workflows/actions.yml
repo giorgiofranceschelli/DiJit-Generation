@@ -41,7 +41,7 @@ jobs:
       - name: Tag as latest
         run: docker tag "gionceschelli/dijit-generation:${{ steps.version.outputs.version }}" "gionceschelli/dijit-generation:latest"
       - name: Deliver on dockerhub
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           echo ${{ secrets.DOCKER_PSW }} | docker login -u gionceschelli --password-stdin
           docker push gionceschelli/dijit-generation:${{ steps.version.outputs.version }}
