@@ -27,8 +27,8 @@ def _reconstruction_plot(vae, real_images, n_to_show=10, path='./images/'):
     
     
 def _generation_plot(vae, n_to_show=10, path='./images/'):
-    fig, axarr = plt.subplots(n_to_show//2, 2, figsize=(15, 18))
-    for i in range(0, n_to_show//2):
+    fig, axarr = plt.subplots(n_to_show, 2, figsize=(15, 18))
+    for i in range(0, n_to_show):
         gen_image = vae.generate()
         axarr[i][0].imshow(gen_image[0], cmap='gray')
         axarr[i][0].set_axis_off()
