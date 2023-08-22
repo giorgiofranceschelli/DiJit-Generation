@@ -5,6 +5,7 @@ import tensorflow_datasets as tfds
 
 from model import VAEManager
 from utils import *
+from plot import *
 
 flax.config.update('flax_use_orbax_checkpointing', True)
 
@@ -48,6 +49,7 @@ def main_training(args):
         print("Epoch %d finished with rec loss %.4f and reg loss %.4f" % (i+1, round(rec_loss_epoch/num_of_batches, 4), round(reg_loss_epoch/num_of_batches, 4)))
     vae_trainer.save_model('./models/', name='vae_'+str(epochs)+'epochs_'+str(batch_size)+'bs_'+str(args.Z_DIM)+'zdim')
     print("Training finished.")
+    make_plots(vae_trainer, path='./images/')
     return
 
 

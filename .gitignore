@@ -162,4 +162,5 @@ cython_debug/
 # Repo-specific folders
 models/
 dataset/
+images/
 tests.ipynb
