@@ -25,10 +25,11 @@ In adherence with [KISS](https://people.apache.org/~fhanik/kiss.html), VAE model
 | Learning rate        | 0.0001         |
 | Optimizer            | Adam           |
 
-The training is fully-reproducible by simply running
+The training is fully-reproducible by simply pulling its docker image
 ```
-docker push gionceschelli/dijit-generation:latest
+docker pull gionceschelli/dijit-generation:latest
 ```
+and running it.
 
 # Results
 
